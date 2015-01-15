@@ -8,9 +8,24 @@ RSpec.describe Bottle, :type => :model do
   end
 
   it { expect(bottle).to validate_presence_of(:name) }
-  it { expect(bottle).to validate_uniqueness_of(:name).case_insensitive }
 
   it { expect(bottle).to validate_presence_of(:type) }
+  it { expect(bottle).to validate_inclusion_of(:type).in_array(%w(bourbon rye scotch)) }
+
   it { expect(bottle).to validate_presence_of(:volume) }
+  it { expect(bottle).to validate_numericality_of(:volume).only_integer }
+  it { expect(bottle).to validate_numericality_of(:volume).is_greater_than(0) }
+
   it { expect(bottle).to validate_presence_of(:proof) }
+  it { expect(bottle).to validate_numericality_of(:proof).is_greater_than(0) }
+  it { expect(bottle).to validate_numericality_of(:proof).is_less_than_or_equal_to(200) }
+
+  it { expect(bottle).to validate_numericality_of(:released).only_integer }
+  it { expect(bottle).to validate_numericality_of(:released).is_greater_than(1700) }
+
+  it { expect(bottle).to validate_numericality_of(:price).is_greater_than(0) }
+
+  it { expect(bottle).to validate_numericality_of(:score).only_integer }
+  it { expect(bottle).to validate_numericality_of(:score).is_greater_than_or_equal_to(0) }
+  it { expect(bottle).to validate_numericality_of(:score).is_less_than_or_equal_to(100) }
 end
