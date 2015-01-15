@@ -45,6 +45,7 @@ gem "hirb"
 gem "kaminari"
 gem "redcarpet"
 gem "seedbank"
+
 group :development, :test do
   gem "rspec-rails"
   gem "pry"
@@ -54,6 +55,7 @@ group :development, :test do
   gem "guard-rspec", require: false
   gem "guard-bundler"
   gem "rb-fsevent"
+  gem "shoulda-matchers"
 end
 
 group :test do

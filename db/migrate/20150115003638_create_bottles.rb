@@ -8,7 +8,6 @@ class CreateBottles < ActiveRecord::Migration
       t.integer :released
       t.integer :price
       t.date :acquired_on
-      t.boolean :open
       t.string :box
       t.text :notes
       t.integer :score
