@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :bottle do
     name "Test Whiskey"
-    type "bourbon"
+    spirit "bourbon"
     volume 750
     proof "120.5"
     released 2014

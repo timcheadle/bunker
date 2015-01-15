@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Type</th>
+      <th>Spirit</th>
       <th>Volume</th>
       <th>Proof</th>
       <th>Released</th>
@@ -25,11 +25,11 @@
     <% @bottles.each do |bottle| %>
       <tr>
         <td><%= bottle.name %></td>
-        <td><%= bottle.type %></td>
+        <td><%= bottle.spirit %></td>
         <td><%= bottle.volume %></td>
         <td><%= bottle.proof %></td>
         <td><%= bottle.released %></td>
-        <td><%= bottle.price %></td>
+        <td><%= number_to_currency(bottle.price) %></td>
         <td><%= bottle.acquired_on %></td>
         <td><%= bottle.open %></td>
         <td><%= bottle.box %></td>
