@@ -1,0 +1,81 @@
+<%= form_for(@bottle) do |f| %>
+  <% if @bottle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bottle.errors.count, "error") %> prohibited this bottle from being saved:</h2>
+
+      <ul>
+      <% @bottle.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :volume %><br>
+    <%= f.number_field :volume %>
+  </div>
+  <div class="field">
+    <%= f.label :proof %><br>
+    <%= f.text_field :proof %>
+  </div>
+  <div class="field">
+    <%= f.label :released %><br>
+    <%= f.number_field :released %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :acquired_on %><br>
+    <%= f.date_select :acquired_on %>
+  </div>
+  <div class="field">
+    <%= f.label :open %><br>
+    <%= f.check_box :open %>
+  </div>
+  <div class="field">
+    <%= f.label :box %><br>
+    <%= f.text_field :box %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :score %><br>
+    <%= f.number_field :score %>
+  </div>
+  <div class="field">
+    <%= f.label :tradable %><br>
+    <%= f.check_box :tradable %>
+  </div>
+  <div class="field">
+    <%= f.label :sellable %><br>
+    <%= f.check_box :sellable %>
+  </div>
+  <div class="field">
+    <%= f.label :stocked %><br>
+    <%= f.check_box :stocked %>
+  </div>
+  <div class="field">
+    <%= f.label :open %><br>
+    <%= f.check_box :open %>
+  </div>
+  <div class="field">
+    <%= f.label :finished %><br>
+    <%= f.check_box :finished %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
