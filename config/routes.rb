@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :bottles
+  resources :bottles do
+    collection do
+      get ':spirit', to: 'bottles#index'
+    end
+  end
 
   devise_for :users
   root to: 'bottles#index'

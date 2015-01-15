@@ -5,7 +5,12 @@ class BottlesController < ApplicationController
   respond_to :html
 
   def index
+    @all_spirits = Bottle.pluck(:spirit).uniq
+    @spirit = params[:spirit]
+
     @bottles = Bottle.all
+    @bottles = @bottles.where(spirit: params[:spirit]) if params[:spirit]
+
     respond_with(@bottles)
   end
 

@@ -13,6 +13,17 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <%= @spirit.try(:capitalize) || 'All' %> <span class="caret"></span>
+            </a>
+            <ul class='dropdown-menu' role='dropdown'>
+              <li><%= link_to 'All', bottles_path %></li>
+              <% @all_spirits.each do |spirit| %>
+                <li><%= link_to spirit.capitalize, bottles_path(spirit: spirit) %></li>
+              <% end %>
+            </ul>
+          </li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Login", new_user_session_path %></li>
