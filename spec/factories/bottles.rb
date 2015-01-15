@@ -9,6 +9,7 @@ FactoryGirl.define do
     acquired_on "2015-01-14"
     box "EX1"
     notes "Tastes great, less filling"
+    source 'ABC Store'
     score 90
     tradable false
     sellable false
