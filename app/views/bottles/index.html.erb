@@ -7,16 +7,17 @@
       <th>Proof</th>
       <th>Released</th>
       <th>Price</th>
-      <th>Acquired on</th>
-      <th>Open</th>
+      <th>Acquired</th>
       <th>Box</th>
       <th>Notes</th>
       <th>Score</th>
       <th>Tradable</th>
       <th>Sellable</th>
       <th>Stocked</th>
-      <th>Open</th>
-      <th>Finished</th>
+      <% unless @state %>
+        <th>Open</th>
+        <th>Finished</th>
+      <% end %>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,16 +31,17 @@
         <td><%= bottle.proof %></td>
         <td><%= bottle.released %></td>
         <td><%= number_to_currency(bottle.price) %></td>
-        <td><%= bottle.acquired_on %></td>
-        <td><%= bottle.open %></td>
+        <td><%= bottle.acquired_on.strftime('%b %Y') %></td>
         <td><%= bottle.box %></td>
         <td><%= bottle.notes %></td>
         <td><%= bottle.score %></td>
         <td><%= bottle.tradable %></td>
         <td><%= bottle.sellable %></td>
         <td><%= bottle.stocked %></td>
-        <td><%= bottle.open %></td>
-        <td><%= bottle.finished %></td>
+        <% unless @state %>
+          <td><%= bottle.open %></td>
+          <td><%= bottle.finished %></td>
+        <% end %>
         <td><%= link_to 'Show', bottle %></td>
         <td><%= link_to 'Edit', edit_bottle_path(bottle) %></td>
         <td><%= link_to 'Destroy', bottle, method: :delete, data: { confirm: 'Are you sure?' } %></td>

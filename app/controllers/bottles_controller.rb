@@ -9,7 +9,16 @@ class BottlesController < ApplicationController
     @spirit = params[:spirit]
 
     @bottles = Bottle.all
-    @bottles = @bottles.where(spirit: params[:spirit]) if params[:spirit]
+    @bottles = @bottles.where(spirit: params[:spirit]) if @spirit
+
+    @all_states = %w(open finished)
+
+    case @state = params[:state]
+    when 'open'
+      @bottles = @bottles.where(open: true)
+    when 'finished'
+      @bottles = @bottles.where(finished: true)
+    end
 
     respond_with(@bottles)
   end

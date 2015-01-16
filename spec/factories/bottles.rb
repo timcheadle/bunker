@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :bottle do
-    name "Test Whiskey"
+    sequence(:name) { |n| "Test Whiskey #{n}" }
     spirit "bourbon"
     volume 750
     proof "120.5"

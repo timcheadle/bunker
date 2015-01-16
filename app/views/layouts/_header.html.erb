@@ -15,12 +15,23 @@
         <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              <%= @spirit.try(:capitalize) || 'All' %> <span class="caret"></span>
+              <%= @spirit.try(:capitalize) || 'All Spirits' %> <span class="caret"></span>
             </a>
             <ul class='dropdown-menu' role='dropdown'>
-              <li><%= link_to 'All', bottles_path %></li>
+              <li><%= link_to 'All', bottles_path(params.merge(spirit: nil)) %></li>
               <% @all_spirits.each do |spirit| %>
-                <li><%= link_to spirit.capitalize, bottles_path(spirit: spirit) %></li>
+                <li><%= link_to spirit.capitalize, bottles_path(params.merge(spirit: spirit)) %></li>
+              <% end %>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <%= @state.try(:capitalize) || 'All Bottles' %> <span class="caret"></span>
+            </a>
+            <ul class='dropdown-menu' role='dropdown'>
+              <li><%= link_to 'All', bottles_path(params.merge(state: nil)) %></li>
+              <% @all_states.each do |state| %>
+                <li><%= link_to state.capitalize, bottles_path(params.merge(state: state)) %></li>
               <% end %>
             </ul>
           </li>
